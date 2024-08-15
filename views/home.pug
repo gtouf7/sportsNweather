@@ -1,0 +1,33 @@
+extends index
+
+block content
+ 
+    div
+        h3 See your favorite city's weather or some soccer leagues around the world!
+    form(id="cityForm" action="/" method="POST")
+      input(id="input" type="text" name="cityInput" placeholder="London")
+      input(class="btn" type="submit" value="Go!")
+    form(id="leagueForm" action="/league" method="POST")
+        select(id="dropdown" name="selected")
+            option(value="X" disabled) -- SELECT --
+            each c in countries
+                option(value=c.cca2) #{c.name.common}
+        button.btn(type="submit") Go!
+    div#info
+        if conditions
+            .infoOut
+                p See #{conditions.name}'s current weather.
+                h4#location #{conditions.name}, #{conditions.sys.country} 
+                p#temp Temperature: #{conditions.main.temp.toFixed(1)}°C
+                p#conditions Conditions: #{conditions.weather[0].main}
+                p Fun fact: #{conditions.name}'s estimated population is: #{locInfo[0].population.toLocaleString()}!   
+        else if sportsInfo
+            .infoOut
+                h4 This is #{sportsInfo.response[0].country.name}'s first soccer division.
+                img(src=sportsInfo.response[0].league.logo alt="#{sportsInfo.response[0].country.name}'s first soccer division main logo")
+                p #{sportsInfo.response[0].league.name}
+        else   
+            h4 Make a choice!
+        
+
+    

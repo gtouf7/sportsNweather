@@ -1,0 +1,19 @@
+{
+  "name": "api-assignment",
+  "version": "1.0.0",
+  "description": "An Express Web App that combines a football and a weather API in order to get weather conditions for upcoming fixtures.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Georgios Toufexis",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "body-parser": "^1.20.2",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "node-fetch": "^3.3.2",
+    "pug": "^3.0.3"
+  }
+}
